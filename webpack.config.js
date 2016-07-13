@@ -1,6 +1,5 @@
 // http://minotaur.badwitch.io/react-webpack-boilerplate/
 var path = require('path');
-var HtmlwebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
@@ -19,12 +18,13 @@ const common = {
 
   resolve: {
     // import/requireをするときに拡張子を省略できるようにする
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.scss', '.css', '.js', '.jsx']
   },
 
   output: {
     path: PATHS.build,
-    filename: 'build.js'
+    filename: 'bundle.js',
+    publicPath: '/js/'
   },
 
   module: {
@@ -33,19 +33,10 @@ const common = {
         test: /\.jsx?$/,
         loaders: ['babel'],
         include: PATHS.app
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
       }
     ]
   },
-
   plugins: [
-    new HtmlwebpackPlugin({
-      title: 'Kanban'
-    }),
-    new ExtractTextPlugin("[name].css")
   ]
 
 };
@@ -63,7 +54,6 @@ if(TARGET === 'start' || !TARGET) {
       host: process.env.HOST,
       port: process.env.PORT
     },
-
     plugins: [
       new webpack.HotModuleReplacementPlugin()
     ]
