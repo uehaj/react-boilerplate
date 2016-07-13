@@ -1,6 +1,7 @@
 // http://minotaur.badwitch.io/react-webpack-boilerplate/
 var path = require('path');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
 
@@ -26,21 +27,25 @@ const common = {
     filename: 'build.js'
   },
 
-   module: {
-     loaders: [
-       {
-         // Babelローダー
-         test: /\.jsx?$/,
-         loaders: ['babel'],
-         include: PATHS.app
-       }
-       ]
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        loaders: ['babel'],
+        include: PATHS.app
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
+      }
+    ]
   },
 
   plugins: [
     new HtmlwebpackPlugin({
       title: 'Kanban'
-    })
+    }),
+    new ExtractTextPlugin("[name].css")
   ]
 
 };
