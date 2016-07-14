@@ -6,7 +6,7 @@ import NumberField from './NumberField'
 
 import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
-import ActionAndroid from 'material-ui/svg-icons/action/settings-backup-restore'; // https://design.google.com/icons/
+import {Grid, Row, Col} from 'react-flexbox-grid';
 
 export default class App extends React.Component {
 
@@ -20,9 +20,16 @@ export default class App extends React.Component {
     };
   }
 
+  calcBMI(h, w) {
+    const result = w / ((h / 100)*(h / 100))
+    return Math.floor(result * 10) / 10;
+  }
+
   handleCalc(event) {
+    const weight = this.state.weight;
+    const height = this.state.height;
     this.setState({
-      bmiValue: this.state.height + this.state.weight
+      bmiValue: this.calcBMI(height, weight)
     });
   }
 
@@ -31,6 +38,7 @@ export default class App extends React.Component {
     this.setState({
       weight: weight
     });
+    this.handleCalc(event)
   }
 
   handleChangeHeight(event) {
@@ -38,25 +46,37 @@ export default class App extends React.Component {
     this.setState({
       height: height
     });
+    this.handleCalc(event)
   }
 
   render() {
     return (
-        <MuiThemeProvider>
-          <div>
-          <AppBar
-           title="BMIを計算"
-           iconClassNameRight="muidocs-icon-navigation-expand-more"/>
-          <NumberField label="身長" onChange={this.handleChangeWeight.bind(this)}/><br />
-          <NumberField label="体重" onChange={this.handleChangeHeight.bind(this)} /><br />
-          <FlatButton onClick={this.handleCalc.bind(this)}
-            label="計算する"
-            labelPosition="before"
-            primary={true}
-            icon={<ActionAndroid />}/><br />
-          <div>BMI={this.state.bmiValue}</div>
-          </div>
-        </MuiThemeProvider>
+      <MuiThemeProvider>
+        <Grid>
+          <Row style={{marginTop:'-1em'}}>
+            <AppBar
+              title="BMIを計算"
+              iconClassNameRight="muidocs-icon-navigation-expand-more"/>
+          </Row>
+          <Row style={{padding:'1em'}}>
+            <Col>
+              <NumberField
+                label="身長を入力してください"
+                onChange={this.handleChangeHeight.bind(this)}/>
+            </Col>
+            <Col>
+            <NumberField
+                label="体重を入力してください"
+                onChange={this.handleChangeWeight.bind(this)} />
+            </Col>
+          </Row>
+          <Row style={{padding:'1em'}}>
+            {this.state.bmiValue
+             ? <h1>あなたのBMIは{this.state.bmiValue}です</h1>
+             : <div/>}
+          </Row>
+        </Grid>
+      </MuiThemeProvider>
     );
   }
 }

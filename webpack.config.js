@@ -1,6 +1,5 @@
 // http://minotaur.badwitch.io/react-webpack-boilerplate/
 var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
 
@@ -17,8 +16,7 @@ const common = {
   entry: PATHS.app,
 
   resolve: {
-    // import/requireをするときに拡張子を省略できるようにする
-    extensions: ['', '.scss', '.css', '.js', '.jsx']
+    extensions: ['', '.js']
   },
 
   output: {
@@ -33,6 +31,11 @@ const common = {
         test: /\.jsx?$/,
         loaders: ['babel'],
         include: PATHS.app
+      },
+      {
+        test: /\.css$/,
+        loader: 'style!css?modules',
+        include: /flexboxgrid/,
       }
     ]
   },
