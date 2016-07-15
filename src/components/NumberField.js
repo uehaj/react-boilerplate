@@ -3,10 +3,13 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 
 export default class NumberField extends React.Component {
+  getValue() {
+    return this.refs.nf.input.value;
+  }
   render() {
     return (
         <TextField
-          ref={this.props.refname}
+          ref="nf"
           type="number"
           floatingLabelText={this.props.label}
           onChange={this.props.onChange}
