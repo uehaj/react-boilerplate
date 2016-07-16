@@ -16,12 +16,10 @@ export default class App extends React.Component {
   }
 
   handleChange({height, weight}) {
-    console.log(this.props)
     this.props.inputDataChange({bmiValue: this.calcBMI(height, weight)})
   }
 
   render() {
-    console.log(this.props)
     return (
       <MuiThemeProvider>
         <BmiCalc
