@@ -47,3 +47,8 @@ export default class BmiCalc extends React.Component {
     );
   }
 }
+
+BmiCalc.propTypes = {
+  onChange:  React.PropTypes.func.isRequired,
+  bmiValue:  React.PropTypes.number.isRequired,
+}
