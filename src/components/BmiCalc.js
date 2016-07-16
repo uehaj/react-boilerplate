@@ -29,13 +29,13 @@ export default class BmiCalc extends React.Component {
               <NumberField
                   ref="height"
                   label="身長を入力してください"
-                  onChange={this.handleChange.bind(this)}/>
+                  onChange={::this.handleChange}/>
             </Col>
             <Col>
               <NumberField
                   ref="weight"
                   label="体重を入力してください"
-                  onChange={this.handleChange.bind(this)} />
+                  onChange={::this.handleChange} />
             </Col>
           </Row>
           <Row style={{padding:'1em'}}>
@@ -49,6 +49,6 @@ export default class BmiCalc extends React.Component {
 }
 
 BmiCalc.propTypes = {
-  onChange:  React.PropTypes.func.isRequired,
-  bmiValue:  React.PropTypes.number.isRequired,
+  onChange: React.PropTypes.func.isRequired,
+  bmiValue: React.PropTypes.number.isRequired,
 }
