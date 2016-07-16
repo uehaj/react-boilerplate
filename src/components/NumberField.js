@@ -17,3 +17,8 @@ export default class NumberField extends React.Component {
     );
   }
 }
+
+NumberField.propTypes = {
+  onChange:  React.PropTypes.func.isRequired,
+  label:     React.PropTypes.string.isRequired,
+}
