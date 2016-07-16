@@ -1,7 +1,7 @@
 {
-  "name": "react-boilerplate",
+  "name": "react-redux-bmi",
   "version": "1.0.0",
-  "description": "",
+  "description": "Show Body Mass Index",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
