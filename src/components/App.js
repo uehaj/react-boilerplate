@@ -1,8 +1,5 @@
 import React from 'react'
-import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import {Grid, Row, Col} from 'react-flexbox-grid';
 
 import NumberField from './NumberField'
 import BmiCalc from './BmiCalc'
@@ -26,9 +23,11 @@ export default class App extends React.Component {
   render() {
     console.log(this.props)
     return (
-      <BmiCalc
-        onChange={this.handleChange.bind(this)}
-        bmiValue={this.props.bmiValue} />
+      <MuiThemeProvider>
+        <BmiCalc
+          onChange={this.handleChange.bind(this)}
+          bmiValue={this.props.bmiValue} />
+      </MuiThemeProvider>
     );
   }
 }
