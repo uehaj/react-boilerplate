@@ -23223,12 +23223,6 @@
 
 	exports.default = App;
 
-
-	App.propTypes = {
-	  bmiValue: _react2.default.PropTypes.number.isRequired,
-	  inputDataChange: _react2.default.PropTypes.func.isRequired
-	};
-
 /***/ },
 /* 205 */
 /***/ function(module, exports, __webpack_require__) {
