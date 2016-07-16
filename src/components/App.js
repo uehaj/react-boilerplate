@@ -11,10 +11,6 @@ export default class App extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      bmiValue: null,
-    };
   }
 
   calcBMI(h, w) {
@@ -23,14 +19,16 @@ export default class App extends React.Component {
   }
 
   handleChange({height, weight}) {
-    this.setState({
-      bmiValue: this.calcBMI(height, weight)
-    });
+    console.log(this.props)
+    this.props.inputDataChange({bmiValue: this.calcBMI(height, weight)})
   }
 
   render() {
+    console.log(this.props)
     return (
-      <BmiCalc onChange={this.handleChange.bind(this)} bmiValue={this.state.bmiValue} />
+      <BmiCalc
+        onChange={this.handleChange.bind(this)}
+        bmiValue={this.props.bmiValue} />
     );
   }
 }

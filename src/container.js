@@ -6,11 +6,11 @@ import App from "./components/App.js"
 import * as actions from "./actions"
 
 function mapStateToProps(state){
-  // 必要に応じてreselectとかここで使う
-  return state
+  console.log(state)
+  return { bmiValue: state.bmiCalc.bmiValue }
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   // dispatchとかcomponent以下に渡したくないのでここでbindしてしまう。
   return bindActionCreators(actions, dispatch)
 }

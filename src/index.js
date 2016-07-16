@@ -4,12 +4,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import App from './components/App';
+import setupStore from './store';
+import createContainer from './container';
 
 injectTapEventPlugin();
 
-let appNode = document.createElement('div');
+const appNode = document.createElement('div');
 document.body.appendChild(appNode);
 
-ReactDOM.render(<App />, appNode);
+const store = setupStore()
+
+ReactDOM.render(createContainer(store), appNode);
 
