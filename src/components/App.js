@@ -1,7 +1,6 @@
 import React from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import NumberField from './NumberField'
 import BmiCalc from './BmiCalc'
 
 export default class App extends React.Component {
