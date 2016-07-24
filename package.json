@@ -28,6 +28,7 @@
     "webpack-merge": "^0.14.0"
   },
   "dependencies": {
+    "babel-plugin-transform-function-bind": "^6.8.0",
     "material-ui": "^0.15.2",
     "react": "^15.2.0",
     "react-dom": "^15.2.0",

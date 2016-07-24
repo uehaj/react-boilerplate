@@ -22,9 +22,15 @@ export default class App extends React.Component {
     return (
       <MuiThemeProvider>
         <BmiCalc
-          onChange={this.handleChange.bind(this)}
+          onChange={::this.handleChange}
           bmiValue={this.props.bmiValue} />
       </MuiThemeProvider>
     );
   }
 }
+
+App.propTypes = {
+  bmiValue: React.PropTypes.number.isRequired,
+  inputDataChange: React.PropTypes.func.isRequired,
+}
+
