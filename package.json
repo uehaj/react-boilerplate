@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
-    "deploy": "shx mkdir -p dist/js && shx cp index.html dist && npm run build && cp build/bundle.js dist/js && git co gh-pages && git add dist && git commit -m 'update' && git push origin gh-pages && git co master"
+    "deploy": "shx mkdir -p dist/js && shx cp index.html dist && npm run build && cp build/bundle.js dist/js && git co gh-pages && git cp dist/index.html . && git cp dist/js/bundle.js . && git add . && git commit -m 'update' && git push origin gh-pages && git co master"
   },
   "keywords": [],
   "author": "",
