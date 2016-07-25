@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack && shx mkdir dist/js && shx cp index.html dist && shx cp build/bundle.js dist",
-    "deploy": "gh-pages -d dist"
+    "build": "webpack && shx rm -rf dist && shx mkdir dist && shx mkdir dist/js && shx cp index.html dist && shx cp build/bundle.js dist/js",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
