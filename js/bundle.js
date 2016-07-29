@@ -34393,7 +34393,7 @@
 
 	var _DevTools2 = _interopRequireDefault(_DevTools);
 
-	var _actions = __webpack_require__(669);
+	var _actions = __webpack_require__(670);
 
 	var actions = _interopRequireWildcard(_actions);
 
@@ -34449,6 +34449,10 @@
 
 	var _BmiCalc2 = _interopRequireDefault(_BmiCalc);
 
+	var _Ribbon = __webpack_require__(669);
+
+	var _Ribbon2 = _interopRequireDefault(_Ribbon);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -34486,9 +34490,14 @@
 	      return _react2.default.createElement(
 	        _MuiThemeProvider2.default,
 	        null,
-	        _react2.default.createElement(_BmiCalc2.default, {
-	          onChange: this.handleChange.bind(this),
-	          bmiValue: this.props.bmiValue })
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(_Ribbon2.default, null),
+	          _react2.default.createElement(_BmiCalc2.default, {
+	            onChange: this.handleChange.bind(this),
+	            bmiValue: this.props.bmiValue })
+	        )
 	      );
 	    }
 	  }]);
@@ -45413,11 +45422,38 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
+	     value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (props) {
+	     return _react2.default.createElement(
+	          "a",
+	          { href: "https://github.com/uehaj/react-redux-bmi" },
+	          _react2.default.createElement("img", { style: { position: "absolute", top: 0, right: 0, border: 0, zIndex: 2000 },
+	               src: "https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67",
+	               alt: "Fork me on GitHub",
+	               "data-canonical-src": "https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" })
+	     );
+	};
+
+/***/ },
+/* 670 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	exports.inputDataChange = undefined;
 
-	var _reduxActions = __webpack_require__(670);
+	var _reduxActions = __webpack_require__(671);
 
 	var _types = __webpack_require__(182);
 
@@ -45433,7 +45469,7 @@
 	});
 
 /***/ },
-/* 670 */
+/* 671 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45443,15 +45479,15 @@
 	});
 	exports.handleActions = exports.handleAction = exports.createAction = undefined;
 
-	var _createAction = __webpack_require__(671);
+	var _createAction = __webpack_require__(672);
 
 	var _createAction2 = _interopRequireDefault(_createAction);
 
-	var _handleAction = __webpack_require__(672);
+	var _handleAction = __webpack_require__(673);
 
 	var _handleAction2 = _interopRequireDefault(_handleAction);
 
-	var _handleActions = __webpack_require__(673);
+	var _handleActions = __webpack_require__(674);
 
 	var _handleActions2 = _interopRequireDefault(_handleActions);
 
@@ -45462,7 +45498,7 @@
 	exports.handleActions = _handleActions2.default;
 
 /***/ },
-/* 671 */
+/* 672 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -45510,7 +45546,7 @@
 	}
 
 /***/ },
-/* 672 */
+/* 673 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -45548,7 +45584,7 @@
 	}
 
 /***/ },
-/* 673 */
+/* 674 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45558,15 +45594,15 @@
 	});
 	exports.default = handleActions;
 
-	var _handleAction = __webpack_require__(672);
+	var _handleAction = __webpack_require__(673);
 
 	var _handleAction2 = _interopRequireDefault(_handleAction);
 
-	var _ownKeys = __webpack_require__(674);
+	var _ownKeys = __webpack_require__(675);
 
 	var _ownKeys2 = _interopRequireDefault(_ownKeys);
 
-	var _reduceReducers = __webpack_require__(675);
+	var _reduceReducers = __webpack_require__(676);
 
 	var _reduceReducers2 = _interopRequireDefault(_reduceReducers);
 
@@ -45588,7 +45624,7 @@
 	}
 
 /***/ },
-/* 674 */
+/* 675 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -45612,7 +45648,7 @@
 	}
 
 /***/ },
-/* 675 */
+/* 676 */
 /***/ function(module, exports) {
 
 	"use strict";
