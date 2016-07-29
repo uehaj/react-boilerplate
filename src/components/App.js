@@ -2,6 +2,7 @@ import React from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import BmiCalc from './BmiCalc'
+import Ribbon from "./Ribbon"
 
 export default class App extends React.Component {
 
@@ -21,9 +22,12 @@ export default class App extends React.Component {
   render() {
     return (
       <MuiThemeProvider>
-        <BmiCalc
-          onChange={::this.handleChange}
-          bmiValue={this.props.bmiValue} />
+        <div>
+          <Ribbon url="https://github.com/uehaj/react-redux-bmi" />
+          <BmiCalc
+            onChange={::this.handleChange}
+            bmiValue={this.props.bmiValue} />
+        </div>
       </MuiThemeProvider>
     );
   }
