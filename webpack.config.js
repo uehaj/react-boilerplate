@@ -67,10 +67,11 @@ if(TARGET === 'start' || !TARGET) {
 // npm buildを実行した時の設定
 if(TARGET === 'build') {
   module.exports = merge(common, {
-    plugins: [
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify('production')
-      })
-    ]
+// productionとしてのbuild時にDevToolsを削除するには以下を有効にする。
+//    plugins: [
+//      new webpack.DefinePlugin({
+//        'process.env.NODE_ENV': JSON.stringify('production')
+//      })
+//    ]
   });
 }
