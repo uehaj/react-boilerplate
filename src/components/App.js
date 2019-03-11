@@ -9,29 +9,24 @@ import Ribbon from './Ribbon';
 
 const theme = createMuiTheme();
 
-export default class App extends React.Component {
-  calcBMI(h, w) {
+export default function App(props) {
+  const calcBMI = (h, w) => {
     const result = w / ((h / 100) * (h / 100));
     return Math.floor(result * 10) / 10;
-  }
+  };
 
-  handleChange({ height, weight }) {
-    this.props.inputDataChange({ bmiValue: this.calcBMI(height, weight) });
-  }
+  const handleChange = ({ height, weight }) => {
+    props.inputDataChange({ bmiValue: calcBMI(height, weight) });
+  };
 
-  render() {
-    return (
-      <MuiThemeProvider theme={theme}>
-        <div>
-          <Ribbon url="https://github.com/uehaj/react-redux-bmi" />
-          <BmiCalc
-            onChange={this.handleChange.bind(this)}
-            bmiValue={this.props.bmiValue}
-          />
-        </div>
-      </MuiThemeProvider>
-    );
-  }
+  return (
+    <MuiThemeProvider theme={theme}>
+      <div>
+        <Ribbon url="https://github.com/uehaj/react-redux-bmi" />
+        <BmiCalc onChange={handleChange} bmiValue={props.bmiValue} />
+      </div>
+    </MuiThemeProvider>
+  );
 }
 
 App.propTypes = {
