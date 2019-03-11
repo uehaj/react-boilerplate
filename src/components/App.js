@@ -10,10 +10,6 @@ import Ribbon from './Ribbon';
 const theme = createMuiTheme();
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   calcBMI(h, w) {
     const result = w / ((h / 100) * (h / 100));
     return Math.floor(result * 10) / 10;
