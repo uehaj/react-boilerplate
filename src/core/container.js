@@ -14,7 +14,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default function createContainer(store) {
-  let ConnectedApp = connect(
+  const ConnectedApp = connect(
     mapStateToProps,
     mapDispatchToProps
   )(App);
