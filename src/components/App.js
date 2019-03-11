@@ -1,32 +1,37 @@
-import React from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import React from 'react';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-import BmiCalc from './BmiCalc'
-import Ribbon from "./Ribbon"
+//import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import PropTypes from 'prop-types';
+
+import BmiCalc from './BmiCalc';
+import Ribbon from './Ribbon';
+
+const theme = createMuiTheme();
 
 export default class App extends React.Component {
-
   constructor(props) {
     super(props);
   }
 
   calcBMI(h, w) {
-    const result = w / ((h / 100)*(h / 100))
+    const result = w / ((h / 100) * (h / 100));
     return Math.floor(result * 10) / 10;
   }
 
-  handleChange({height, weight}) {
-    this.props.inputDataChange({bmiValue: this.calcBMI(height, weight)})
+  handleChange({ height, weight }) {
+    this.props.inputDataChange({ bmiValue: this.calcBMI(height, weight) });
   }
 
   render() {
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider theme={theme}>
         <div>
           <Ribbon url="https://github.com/uehaj/react-redux-bmi" />
           <BmiCalc
-            onChange={::this.handleChange}
-            bmiValue={this.props.bmiValue} />
+            onChange={this.handleChange.bind(this)}
+            bmiValue={this.props.bmiValue}
+          />
         </div>
       </MuiThemeProvider>
     );
@@ -34,7 +39,6 @@ export default class App extends React.Component {
 }
 
 App.propTypes = {
-  bmiValue: React.PropTypes.number.isRequired,
-  inputDataChange: React.PropTypes.func.isRequired,
-}
-
+  bmiValue: PropTypes.number.isRequired,
+  inputDataChange: PropTypes.func.isRequired,
+};

@@ -3,11 +3,11 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+// import injectTapEventPlugin from 'react-tap-event-plugin';
 import setupStore from './store';
 import createContainer from './container';
 
-injectTapEventPlugin();
+// injectTapEventPlugin();
 
 const appNode = document.createElement('div');
 document.body.appendChild(appNode);

@@ -1,24 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import TextField from 'material-ui/TextField';
+import TextField from '@material-ui/core/TextField';
 
 export default class NumberField extends React.Component {
   getValue() {
-    return this.refs.nf.input.value;
+    return this.nf.value;
   }
   render() {
     return (
-        <TextField
-          ref="nf"
-          type="number"
-          floatingLabelText={this.props.label}
-          onChange={this.props.onChange}
-        ></TextField>
+      <TextField
+        inputRef={el => (this.nf = el)}
+        label="Number"
+        onChange={this.props.onChange}
+        type="number"
+        InputLabelProps={{
+          shrink: true,
+        }}
+        margin="normal"
+      />
     );
   }
 }
 
 NumberField.propTypes = {
-  onChange:  React.PropTypes.func.isRequired,
-  label:     React.PropTypes.string.isRequired,
-}
+  onChange: PropTypes.func.isRequired,
+  label: PropTypes.string.isRequired,
+};
