@@ -4,18 +4,11 @@ import AppBar from '@material-ui/core/AppBar';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 import NumberField from './NumberField';
-import App from './App';
 
 export default class BmiCalc extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  handleChange(event) {
-    const height = parseInt(this.height.getValue());
-    const weight = parseInt(this.weight.getValue());
-    console.log('height=', this.height);
-    console.log('weight=', this.weight);
+  handleChange() {
+    const height = parseInt(this.height.value);
+    const weight = parseInt(this.weight.value);
     this.props.onChange({ height, weight });
   }
 
@@ -27,16 +20,16 @@ export default class BmiCalc extends React.Component {
           <Row style={{ padding: '1em' }}>
             <Col>
               <NumberField
-                ref={el => (this.height = el)}
+                inputRef={el => (this.height = el)}
                 label="身長を入力してください"
                 onChange={this.handleChange.bind(this)}
               />
             </Col>
             <Col>
               <NumberField
-                ref={el => (this.weight = el)}
+                inputRef={el => (this.weight = el)}
                 label="体重を入力してください"
-                onChange={this.handleChange.bind(this)}
+                onChange={el => this.handleChange(el)}
               />
             </Col>
           </Row>
