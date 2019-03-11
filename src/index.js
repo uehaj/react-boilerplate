@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
-import setupStore from './store';
-import createContainer from './container';
+import setupStore from './core/store';
+import createContainer from './core/container';
 
 // injectTapEventPlugin();
 

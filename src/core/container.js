@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect, Provider } from 'react-redux';
-import App from './components/App';
+import App from '../pages/App';
 
 import * as actions from './actions';
 

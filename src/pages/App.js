@@ -4,8 +4,8 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 //import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import PropTypes from 'prop-types';
 
-import BmiCalc from './BmiCalc';
-import Ribbon from './Ribbon';
+import BmiCalc from '../components/BmiCalc';
+import Ribbon from '../components/Ribbon';
 
 const theme = createMuiTheme();
 
