@@ -9,12 +9,12 @@ import Ribbon from './Ribbon';
 
 const theme = createMuiTheme();
 
-export default function App(props) {
-  const calcBMI = (h, w) => {
-    const result = w / ((h / 100) * (h / 100));
-    return Math.floor(result * 10) / 10;
-  };
+const calcBMI = (h, w) => {
+  const result = w / ((h / 100) * (h / 100));
+  return Math.floor(result * 10) / 10;
+};
 
+export default function App(props) {
   const handleChange = ({ height, weight }) => {
     props.inputDataChange({ bmiValue: calcBMI(height, weight) });
   };

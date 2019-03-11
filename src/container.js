@@ -20,9 +20,7 @@ export default function createContainer(store) {
   )(App);
   return (
     <Provider store={store}>
-      <div>
-        <ConnectedApp />
-      </div>
+      <ConnectedApp />
     </Provider>
   );
 }
